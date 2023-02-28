@@ -1,9 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+
 import { connection } from "./app/db/database";
-import authRouter from "./app/routes/auth.routes";
-import swaggerUI from "swagger-ui-express";
 import {docs} from "./app/docs/index";
+
+import swaggerUI from "swagger-ui-express";
+
+import authRouter from "./app/routes/auth.routes";
+import userRouter from "./app/routes/user.routes";
+import linksRouter from "./app/routes/links.routes";
 
 
 dotenv.config();
@@ -30,6 +35,8 @@ export class App {
 
   private router() {
     this.server.use(authRouter)
+    this.server.use(userRouter)
+    this.server.use(linksRouter)
   }
 
   private swagger() {

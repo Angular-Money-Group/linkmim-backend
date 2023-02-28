@@ -93,3 +93,5 @@ export const deleteLink = async (req: Request, res: Response) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export default { getLinks, createLink, updateLink, deleteLink };

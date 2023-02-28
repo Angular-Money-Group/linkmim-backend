@@ -83,3 +83,5 @@ export const getPremium = async (req: Request, res: Response) => {
         return res.status(500).json({ message: error });
     }
 }
+
+export default { getUserInfo, updateUserInfo, deleteUser, getPremium };
