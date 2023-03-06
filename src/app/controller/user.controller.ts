@@ -43,7 +43,7 @@ export const updateUserInfo = async (req: Request, res: Response) => {
         ]);
         }
         if (password) {
-        const salt = await bcrypt.genSalt(32);
+        const salt = await bcrypt.genSalt(12);
         const hash = await bcrypt.hash(password, salt);
         await query("UPDATE Usuários SET password=? WHERE id=?", [hash, id]);
         }
