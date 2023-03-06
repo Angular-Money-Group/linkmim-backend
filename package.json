@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.ts",
-    "build": "copy .env.example .env && npx tsc"
+    "build": "npx tsc && npm run copy-env",
+    "copy-env": "cp .env build"
   },
   "author": "",
   "license": "ISC",
