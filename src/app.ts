@@ -9,6 +9,7 @@ import swaggerUI from "swagger-ui-express";
 import authRouter from "./app/routes/auth.routes";
 import userRouter from "./app/routes/user.routes";
 import linksRouter from "./app/routes/links.routes";
+import cors from "cors";
 
 
 dotenv.config();
@@ -22,6 +23,7 @@ export class App {
     this.middleware();
     this.router();
     this.connectDB();
+    this.server.use(cors());
   }
 
   private middleware() {
