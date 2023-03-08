@@ -23,11 +23,16 @@ export class App {
     this.middleware();
     this.router();
     this.connectDB();
-    this.server.use(cors());
   }
-
+  
   private middleware() {
+    const corsOptions = {
+      origin: '*',
+      methods: ['GET', 'PUT', 'POST', 'DELETE'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+    };
     this.server.use(express.json());
+    this.server.use(cors(corsOptions));
   }
 
   private connectDB() {
